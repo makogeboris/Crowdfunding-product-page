@@ -190,7 +190,7 @@
               <h4 class="card-title card-title-ofs">
                 Mahogany Special Edition
               </h4>
-              <p class="pledge">Pledge $200 or more</p>
+              <p class="pledge pledge-ofs">Pledge $200 or more</p>
             </div>
 
             <p class="paragraph card-paragraph card-paragraph-ofs">
@@ -211,42 +211,216 @@
     </main>
 
     <!-- Selection modal start -->
+    <section class="selection-modal hide animate__animated animate__zoomIn">
+      <div class="modal">
+        <div class="modal-title-wrap">
+          <h3 class="about-heading">Back this project</h3>
 
-    <!-- Back this project Want to support us in bringing Mastercraft Bamboo Monitor
-    Riser out in the world? Pledge with no reward Choose to support us without a
-    reward if you simply believe in our project. As a backer, you will be signed
-    up to receive product updates via email. Bamboo Stand Pledge $25 or more You
-    get an ergonomic stand made of natural bamboo. You've helped us launch our
-    promotional campaign, and you’ll be added to a special Backer member list.
-    101 left -->
+          <button class="close-modal-btn">
+            <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
+                fill="#000"
+                fill-rule="evenodd"
+                opacity=".4"
+              />
+            </svg>
+          </button>
+        </div>
 
-    <!-- Selected pledge start -->
+        <p class="card-paragraph">
+          Want to support us in bringing Mastercraft Bamboo Monitor Riser out in
+          the world?
+        </p>
 
-    <!-- Enter your pledge $25 Continue -->
+        <div class="form-wrap">
+          <form novalidate class="form">
+            <div class="visible">
+              <label class="form-label" for="no-reward-radio">
+                <input
+                  type="radio"
+                  class="form-radio"
+                  name="pledge"
+                  id="no-reward-radio"
+                  value="no-reward"
+                />
+                <span class="custom-radio"></span>
+                <span class="label-radio card-title"
+                  >Pledge with no reward</span
+                >
+              </label>
 
-    <!-- Selected pledge end -->
+              <p class="card-paragraph form-paragraph">
+                Choose to support us without a reward if you simply believe in
+                our project. As a backer, you will be signed up to receive
+                product updates via email.
+              </p>
+            </div>
 
-    <!-- Black Edition Stand Pledge $75 or more You get a Black Special Edition
-    computer stand and a personal thank you. You’ll be added to our Backer
-    member list. Shipping is included. 64 left -->
+            <div class="saisir cache">
+              <label for="no-reward" class="card-paragraph"
+                >Enter your pledge</label
+              >
+              <div class="input-btn">
+                <input
+                  class="pledge-amount"
+                  type="number"
+                  name="no-reward"
+                  id="no-reward"
+                  placeholder="1"
+                />
+                <span class="prefix">$</span>
+                <button class="btn form-btn">Continue</button>
+              </div>
+            </div>
+          </form>
 
-    <!-- Selected pledge start -->
+          <form novalidate class="form">
+            <div class="visible">
+              <label class="form-label form-label-pledge" for="bamboo-radio">
+                <input
+                  type="radio"
+                  class="form-radio"
+                  name="pledge"
+                  id="bamboo-radio"
+                  value="bamboo"
+                />
+                <span class="custom-radio"></span>
+                <div class="label-wrap">
+                  <span class="label-radio card-title">Bamboo Stand</span>
+                  <span class="pledge">Pledge $25 or more</span>
+                </div>
 
-    <!-- Enter your pledge $75 Continue -->
+                <p class="count count-form mobile-none">
+                  101<span class="left left-form">left</span>
+                </p>
+              </label>
 
-    <!-- Selected pledge end -->
+              <p class="card-paragraph form-paragraph">
+                You get an ergonomic stand made of natural bamboo. You've helped
+                us launch our promotional campaign, and you’ll be added to a
+                special Backer member list.
+              </p>
 
-    <!-- Mahogany Special Edition Pledge $200 or more You get two Special Edition
-    Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-    to our Backer member list. Shipping is included. 0 left -->
+              <p class="count count-form desktop-none">
+                101<span class="left left-form">left</span>
+              </p>
+            </div>
 
-    <!-- Selected pledge  start -->
+            <div class="saisir cache">
+              <label for="bamboo" class="card-paragraph"
+                >Enter your pledge</label
+              >
 
-    <!-- Enter your pledge $200 Continue -->
+              <div class="input-btn">
+                <input
+                  class="pledge-amount"
+                  type="number"
+                  name="bamboo"
+                  id="bamboo"
+                  placeholder="25"
+                />
+                <span class="prefix">$</span>
+                <button class="btn form-btn">Continue</button>
+              </div>
+            </div>
+          </form>
 
-    <!-- Selected pledge end -->
+          <form novalidate class="form">
+            <div class="visible">
+              <label
+                class="form-label form-label-pledge"
+                for="black-edition-radio"
+              >
+                <input
+                  type="radio"
+                  class="form-radio"
+                  name="pledge"
+                  id="black-edition-radio"
+                  value="black-edition"
+                />
+                <span class="custom-radio"></span>
+                <div class="label-wrap">
+                  <span class="label-radio card-title"
+                    >Black Edition Stand</span
+                  >
+                  <span class="pledge">Pledge $75 or more</span>
+                </div>
 
+                <p class="count count-form mobile-none">
+                  64<span class="left left-form">left</span>
+                </p>
+              </label>
+
+              <p class="card-paragraph form-paragraph">
+                You get a Black Special Edition computer stand and a personal
+                thank you. You’ll be added to our Backer member list. Shipping
+                is included.
+              </p>
+
+              <p class="count count-form desktop-none">
+                64<span class="left left-form">left</span>
+              </p>
+            </div>
+
+            <div class="saisir cache">
+              <label for="black-edition" class="card-paragraph"
+                >Enter your pledge</label
+              >
+
+              <div class="input-btn">
+                <input
+                  class="pledge-amount"
+                  type="number"
+                  name="black-edition"
+                  id="black-edition"
+                  placeholder="75"
+                />
+                <span class="prefix">$</span>
+                <button class="btn form-btn">Continue</button>
+              </div>
+            </div>
+          </form>
+
+          <form novalidate class="form">
+            <div class="visible">
+              <label class="form-label form-label-pledge" for="mahogany-radio">
+                <input
+                  type="radio"
+                  class="form-radio"
+                  name="pledge"
+                  id="mahogany-radio"
+                  value="mahogany"
+                />
+                <span class="custom-radio"></span>
+                <div class="label-wrap">
+                  <span class="label-radio card-title card-title-ofs"
+                    >Mahogany Special Edition</span
+                  >
+                  <span class="pledge pledge-ofs">Pledge $200 or more</span>
+                </div>
+
+                <p class="count count-form count-ofs mobile-none">
+                  0<span class="left left-form">left</span>
+                </p>
+              </label>
+
+              <p class="card-paragraph form-paragraph card-paragraph-ofs">
+                You get two Special Edition Mahogany stands, a Backer T-Shirt,
+                and a personal thank you. You’ll be added to our Backer member
+                list. Shipping is included.
+              </p>
+
+              <p class="count count-form count-ofs desktop-none">
+                0<span class="left left-form">left</span>
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
     <!-- Selection modal end -->
+    <div class="overlay hide"></div>
 
     <!-- Success modal start -->
 

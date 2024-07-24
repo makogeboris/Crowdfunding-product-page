@@ -22,24 +22,50 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  const modal = document.querySelector(".selection-modal");
+  const overlay = document.querySelector(".overlay");
+  const projectBtn = document.querySelector(".project-btn");
+  const closeModalBtn = document.querySelector(".close-modal-btn");
   const menu = document.querySelector(".mobile-menu");
-  const btn = document.querySelector(".ham-btn");
+  const hamburgerBtn = document.querySelector(".ham-btn");
   const openIcon = `<svg width="16" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="evenodd"><path d="M0 0h16v3H0zM0 6h16v3H0zM0 12h16v3H0z"/></g></svg>`;
   const closeIcon = `<svg width="14" height="15" xmlns="http://www.w3.org/2000/svg"><g fill="#FFF" fill-rule="evenodd"><path d="M2.404.782l11.314 11.314-2.122 2.122L.282 2.904z"/><path d="M.282 12.096L11.596.782l2.122 2.122L2.404 14.218z"/></g></svg>`;
 
-  btn.innerHTML = openIcon;
+  hamburgerBtn.innerHTML = openIcon;
 
-  btn.addEventListener("click", navToggle);
+  const openModal = function (e) {
+    e.preventDefault();
+    modal.classList.remove("hide");
+    overlay.classList.remove("hide");
+  };
+
+  const closeModal = function () {
+    modal.classList.add("hide");
+    overlay.classList.add("hide");
+  };
 
   function navToggle() {
     menu.classList.toggle("hidden");
 
     if (menu.classList.contains("hidden")) {
-      btn.innerHTML = openIcon;
+      hamburgerBtn.innerHTML = openIcon;
+      overlay.classList.add("hide");
     } else {
-      btn.innerHTML = closeIcon;
+      hamburgerBtn.innerHTML = closeIcon;
+      overlay.classList.remove("hide");
     }
   }
+
+  hamburgerBtn.addEventListener("click", navToggle);
+  projectBtn.addEventListener("click", openModal);
+  closeModalBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+      closeModal();
+    }
+  });
 });
 
 gsap.to("#days", {
