@@ -26,6 +26,8 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <title>Frontend Mentor | Crowdfunding product page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <script defer src="script.js"></script>
   </head>
   <body>
     <header class="header">
@@ -396,7 +398,7 @@
             </div>
           </div>
 
-          <div class="form">
+          <div id="mahoganyStand" class="form">
             <div class="visible">
               <label
                 class="form-label form-label-pledge form-label-ofs"
@@ -438,15 +440,24 @@
       </div>
     </section>
     <!-- Selection modal end -->
-    <div class="overlay hide"></div>
 
     <!-- Success modal start -->
+    <div class="success-modal">
+      <div class="success">
+        <img class="icon-check" src="images/icon-check.svg" alt="" />
 
-    <!-- Thanks for your support! Your pledge brings us one step closer to sharing
-    Mastercraft Bamboo Monitor Riser worldwide. You will get an email once our
-    campaign is completed. Got it! -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+        <h3 class="about-heading success-heading">Thanks for your support!</h3>
 
-    <script src="script.js"></script>
+        <p class="card-paragraph success-paragraph">
+          Your pledge brings us one step closer to sharing Mastercraft Bamboo
+          Monitor Riser worldwide. You will get an email once our campaign is
+          completed.
+        </p>
+
+        <button class="btn success-btn">Got it!</button>
+      </div>
+    </div>
+    <!-- Success modal end -->
+    <div class="overlay hide"></div>
   </body>
 </html>
