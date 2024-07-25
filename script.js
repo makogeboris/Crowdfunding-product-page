@@ -22,7 +22,6 @@ bookmarkBtn.addEventListener("click", function () {
 });
 
 const form = document.querySelectorAll(".form");
-
 // const inputPledge = document.querySelectorAll(".saisir");
 // const hidePledge = document.querySelectorAll(".cache");
 // const bambooStand = document.getElementById("bambooStand");
@@ -43,6 +42,7 @@ hamburgerBtn.innerHTML = openIcon;
 const openModal = function () {
   modal.classList.remove("hide");
   overlay.classList.remove("hide");
+  document.body.classList.add("modal-open");
 };
 
 projectBtn.addEventListener("click", openModal);
@@ -50,6 +50,7 @@ projectBtn.addEventListener("click", openModal);
 const closeModal = function () {
   modal.classList.add("hide");
   overlay.classList.add("hide");
+  document.body.classList.remove("modal-open");
 
   const inputPledge = document.querySelectorAll(".saisir");
   inputPledge.forEach((pledge) => {
@@ -83,6 +84,13 @@ function navToggle() {
 }
 
 hamburgerBtn.addEventListener("click", navToggle);
+
+const closeMenu = function () {
+  menu.classList.add("hidden");
+  hamburgerBtn.innerHTML = openIcon;
+};
+
+overlay.addEventListener("click", closeMenu);
 
 const updateFormBorder = function () {
   document.querySelectorAll(".form").forEach((form) => {
@@ -162,6 +170,27 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+const formBtn = document.querySelectorAll(".form-btn");
+const successBtn = document.querySelector(".success-btn");
+const successModal = document.querySelector(".success-modal");
+
+formBtn.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    successModal.style.display = "block";
+    modal.classList.add("hide");
+    overlay.classList.remove("hide");
+  });
+});
+
+const closeSuccess = function () {
+  successModal.style.display = "none";
+  closeModal();
+};
+
+successBtn.addEventListener("click", closeSuccess);
+overlay.addEventListener("click", closeSuccess);
 
 gsap.to("#days", {
   duration: 2,

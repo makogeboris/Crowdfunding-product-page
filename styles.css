@@ -534,8 +534,12 @@ body {
   background: var(--darker-gray);
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 .selection-modal {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -543,7 +547,9 @@ body {
   transition: all 0.5s;
   width: 100%;
   max-width: 48.625rem;
-  padding: 0 1.5rem;
+  padding: 5rem 1.5rem;
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
 .modal {
@@ -1052,10 +1058,6 @@ input[type="number"]::-webkit-outer-spin-button {
   .pledge {
     font-size: 0.9375rem;
     line-height: 1.125;
-  }
-
-  .selection-modal {
-    top: 120%;
   }
 
   .modal {
