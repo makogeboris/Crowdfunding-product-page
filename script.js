@@ -22,6 +22,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  const form = document.querySelectorAll(".form");
+
+  const inputPledge = document.querySelectorAll(".saisir");
+  // const hidePledge = document.querySelectorAll(".cache");
+  // const bambooStand = document.getElementById("bambooStand");
+  // const blackStand = document.getElementById("blackStand");
+  const openBambooBtn = document.querySelector(".open-bamboo-btn");
+  const openBlackBtn = document.querySelector(".open-black-btn");
   const modal = document.querySelector(".selection-modal");
   const overlay = document.querySelector(".overlay");
   const projectBtn = document.querySelector(".project-btn");
@@ -33,8 +41,49 @@ document.addEventListener("DOMContentLoaded", function () {
 
   hamburgerBtn.innerHTML = openIcon;
 
-  const openModal = function (e) {
-    e.preventDefault();
+  const showCache = function (targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement && targetElement.classList.contains("cache")) {
+      targetElement.classList.remove("cache");
+    }
+  };
+
+  const noRewardLabel = document.getElementById("noRewardLabel");
+  const bambooLabel = document.getElementById("bambooLabel");
+  const blackLabel = document.getElementById("blackLabel");
+
+  noRewardLabel.addEventListener("click", () =>
+    showCache(noRewardLabel.dataset.target)
+  );
+  bambooLabel.addEventListener("click", () =>
+    showCache(bambooLabel.dataset.target)
+  );
+  blackLabel.addEventListener("click", () =>
+    showCache(blackLabel.dataset.target)
+  );
+
+  const updateFormBorder = function () {
+    document.querySelectorAll(".form").forEach((form) => {
+      form.classList.remove("border-highlight");
+    });
+
+    const checkedRadio = document.querySelector(".form-radio:checked");
+    if (checkedRadio) {
+      const formElement = checkedRadio.closest(".form");
+      if (formElement) {
+        formElement.classList.add("border-highlight");
+      }
+    }
+  };
+
+  const radios = document.querySelectorAll(".form-radio");
+  radios.forEach((radio) => {
+    radio.addEventListener("change", updateFormBorder);
+  });
+
+  updateFormBorder();
+
+  const openModal = function () {
     modal.classList.remove("hide");
     overlay.classList.remove("hide");
   };
@@ -42,6 +91,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const closeModal = function () {
     modal.classList.add("hide");
     overlay.classList.add("hide");
+
+    const inputPledge = document.querySelectorAll(".saisir");
+    inputPledge.forEach((pledge) => {
+      pledge.classList.add("cache");
+    });
+
+    let checkedRadio = document.querySelector(".form-radio:checked");
+    if (checkedRadio) {
+      const formElement = checkedRadio.closest(".form");
+      if (formElement) {
+        formElement.classList.remove("border-highlight");
+      }
+      checkedRadio.checked = false;
+    }
   };
 
   function navToggle() {
@@ -56,6 +119,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  const showBamboo = function () {
+    const bambooStand = document.getElementById("bambooStand");
+    modal.classList.remove("hide");
+    overlay.classList.remove("hide");
+    bambooStand.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const showBlack = function () {
+    const blackStand = document.getElementById("blackStand");
+    modal.classList.remove("hide");
+    overlay.classList.remove("hide");
+    blackStand.scrollIntoView({ behavior: "smooth" });
+  };
+
+  openBlackBtn.addEventListener("click", showBlack);
+  openBambooBtn.addEventListener("click", showBamboo);
   hamburgerBtn.addEventListener("click", navToggle);
   projectBtn.addEventListener("click", openModal);
   closeModalBtn.addEventListener("click", closeModal);

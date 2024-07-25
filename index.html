@@ -163,7 +163,9 @@
 
             <div class="count-btn">
               <p class="count">101<span class="left">left</span></p>
-              <button class="btn card-btn">Select Reward</button>
+              <button class="btn card-btn open-bamboo-btn">
+                Select Reward
+              </button>
             </div>
           </div>
 
@@ -181,7 +183,7 @@
 
             <div class="count-btn">
               <p class="count">64<span class="left">left</span></p>
-              <button class="btn card-btn">Select Reward</button>
+              <button class="btn card-btn open-black-btn">Select Reward</button>
             </div>
           </div>
 
@@ -233,10 +235,15 @@
           the world?
         </p>
 
-        <div class="form-wrap">
-          <form novalidate class="form">
+        <form novalidate class="form-wrap">
+          <div class="form">
             <div class="visible">
-              <label class="form-label" for="no-reward-radio">
+              <label
+                id="noRewardLabel"
+                class="form-label no-reward-label"
+                data-target="noRewardPledge"
+                for="no-reward-radio"
+              >
                 <input
                   type="radio"
                   class="form-radio"
@@ -257,7 +264,7 @@
               </p>
             </div>
 
-            <div class="saisir cache">
+            <div id="noRewardPledge" class="saisir cache">
               <label for="no-reward" class="card-paragraph"
                 >Enter your pledge</label
               >
@@ -273,11 +280,16 @@
                 <button class="btn form-btn">Continue</button>
               </div>
             </div>
-          </form>
+          </div>
 
-          <form novalidate class="form">
+          <div id="bambooStand" class="form">
             <div class="visible">
-              <label class="form-label form-label-pledge" for="bamboo-radio">
+              <label
+                id="bambooLabel"
+                class="form-label form-label-pledge bamboo-label"
+                data-target="bambooPledge"
+                for="bamboo-radio"
+              >
                 <input
                   type="radio"
                   class="form-radio"
@@ -307,7 +319,7 @@
               </p>
             </div>
 
-            <div class="saisir cache">
+            <div id="bambooPledge" class="saisir cache">
               <label for="bamboo" class="card-paragraph"
                 >Enter your pledge</label
               >
@@ -324,12 +336,14 @@
                 <button class="btn form-btn">Continue</button>
               </div>
             </div>
-          </form>
+          </div>
 
-          <form novalidate class="form">
+          <div id="blackStand" class="form">
             <div class="visible">
               <label
-                class="form-label form-label-pledge"
+                id="blackLabel"
+                class="form-label form-label-pledge black-label"
+                data-target="blackPledge"
                 for="black-edition-radio"
               >
                 <input
@@ -363,7 +377,7 @@
               </p>
             </div>
 
-            <div class="saisir cache">
+            <div id="blackPledge" class="saisir cache">
               <label for="black-edition" class="card-paragraph"
                 >Enter your pledge</label
               >
@@ -380,21 +394,25 @@
                 <button class="btn form-btn">Continue</button>
               </div>
             </div>
-          </form>
+          </div>
 
-          <form novalidate class="form">
+          <div class="form">
             <div class="visible">
-              <label class="form-label form-label-pledge" for="mahogany-radio">
+              <label
+                class="form-label form-label-pledge form-label-ofs"
+                for="mahogany-radio"
+              >
                 <input
                   type="radio"
-                  class="form-radio"
-                  name="pledge"
+                  class="form-radio form-radio-ofs"
+                  name="maho"
                   id="mahogany-radio"
                   value="mahogany"
                 />
-                <span class="custom-radio"></span>
+                <span class="custom-radio custom-radio-ofs"></span>
                 <div class="label-wrap">
-                  <span class="label-radio card-title card-title-ofs"
+                  <span
+                    class="label-radio label-radio-ofs card-title card-title-ofs"
                     >Mahogany Special Edition</span
                   >
                   <span class="pledge pledge-ofs">Pledge $200 or more</span>
@@ -415,8 +433,8 @@
                 0<span class="left left-form">left</span>
               </p>
             </div>
-          </form>
-        </div>
+          </div>
+        </form>
       </div>
     </section>
     <!-- Selection modal end -->

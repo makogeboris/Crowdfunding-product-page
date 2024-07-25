@@ -566,6 +566,11 @@ body {
   cursor: pointer;
 }
 
+.close-modal-btn:focus-visible {
+  outline: 2px solid var(--moderate-cyan);
+  outline-offset: 1px;
+}
+
 .close-modal-btn svg path:hover {
   transition: opacity 0.3s ease;
 }
@@ -587,6 +592,20 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.15);
   padding-block: 2rem;
   padding-inline: 1.5rem;
+}
+
+.label-radio {
+  transition: all 0.3s ease;
+}
+
+.label-radio:hover {
+  cursor: pointer;
+  color: var(--moderate-cyan);
+}
+
+.label-radio-ofs:hover {
+  cursor: default;
+  color: var(--black);
 }
 
 .form-paragraph {
@@ -634,11 +653,12 @@ body {
 
 .pledge-amount:focus {
   outline: none;
-  border: 1px solid var(--dark-cyan);
+  border: 2px solid var(--moderate-cyan);
 }
 
 .pledge-amount,
-.prefix {
+.prefix,
+.pledge-amount::placeholder {
   font-weight: 700;
   font-size: 0.875rem;
   line-height: 1;
@@ -657,7 +677,7 @@ body {
   font-size: 0.875rem;
   line-height: 1;
   color: var(--white);
-  padding: 1em 1.5em;
+  padding: 1.2em 1.5em;
 }
 
 .cache {
@@ -669,6 +689,7 @@ body {
   align-items: center;
   gap: 1rem;
   margin-bottom: 2.0625rem;
+  cursor: pointer;
 }
 
 .form-label-pledge {
@@ -711,6 +732,11 @@ body {
   background-color: var(--moderate-cyan);
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+}
+
+.form.border-highlight {
+  border: 2px solid var(--moderate-cyan);
 }
 
 .form-radio:checked + .custom-radio {
@@ -722,8 +748,52 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15);
 }
 
+.form-radio:focus + .custom-radio-ofs {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.form-radio:hover + .custom-radio {
+  cursor: pointer;
+  border-color: var(--moderate-cyan);
+  box-shadow: rgba(0, 0, 0, 0.15);
+}
+
+.form-radio:hover + .custom-radio-ofs,
+.form-label-ofs {
+  border-color: rgba(0, 0, 0, 0.15);
+  cursor: default;
+}
+
+.form-label:hover .form-radio + .custom-radio + .label-radio {
+  color: var(--moderate-cyan);
+}
+
+.form-label.form-label-pledge:hover
+  .form-radio
+  + .custom-radio
+  + .label-wrap
+  .label-radio {
+  color: var(--moderate-cyan);
+}
+
+.form-label.form-label-pledge:hover
+  .form-radio
+  + .custom-radio
+  + .label-wrap
+  .label-radio-ofs {
+  color: var(--black);
+}
+
 .form-radio:checked + .custom-radio::after {
   display: block;
+}
+
+.form-radio-ofs:checked + .custom-radio {
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+.custom-radio-ofs::after {
+  background-color: var(--white);
 }
 
 .overlay {
