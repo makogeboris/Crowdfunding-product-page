@@ -543,7 +543,7 @@ body.modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 200;
   transition: all 0.5s;
   width: 100%;
   max-width: 48.625rem;
@@ -831,7 +831,7 @@ body.modal-open {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1000;
+  z-index: 200;
   transition: all 0.5s;
   max-width: 33.75rem;
   width: 100%;
