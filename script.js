@@ -14,14 +14,34 @@ const openModal = function () {
   modal.classList.remove("hide");
   overlay.classList.remove("hide");
   document.body.classList.add("modal-open");
+
+  modal.classList.add("animate__animated", "animate__zoomIn");
+
+  modal.addEventListener(
+    "animationend",
+    function () {
+      modal.classList.remove("animate__animated", "animate__zoomIn");
+    },
+    { once: true }
+  );
 };
 
 projectBtn.addEventListener("click", openModal);
 
 const closeModal = function () {
-  modal.classList.add("hide");
   overlay.classList.add("hide");
-  document.body.classList.remove("modal-open");
+  modal.classList.add("animate__animated", "animate__zoomOut");
+
+  modal.addEventListener(
+    "animationend",
+    function () {
+      modal.classList.remove("animate__animated", "animate__zoomOut");
+      modal.classList.add("hide");
+
+      document.body.classList.remove("modal-open");
+    },
+    { once: true }
+  );
 
   const inputPledge = document.querySelectorAll(".saisir");
   inputPledge.forEach((pledge) => {
@@ -50,14 +70,34 @@ const closeIcon = `<svg width="14" height="15" xmlns="http://www.w3.org/2000/svg
 hamburgerBtn.innerHTML = openIcon;
 
 function navToggle() {
-  menu.classList.toggle("hidden");
-
   if (menu.classList.contains("hidden")) {
-    hamburgerBtn.innerHTML = openIcon;
-    overlay.classList.add("hide");
-  } else {
-    hamburgerBtn.innerHTML = closeIcon;
+    menu.classList.remove("hidden");
+    menu.classList.add("animate__animated", "animate__backInUp");
     overlay.classList.remove("hide");
+
+    menu.addEventListener(
+      "animationend",
+      function () {
+        menu.classList.remove("animate__animated", "animate__backInUp");
+      },
+      { once: true }
+    );
+
+    hamburgerBtn.innerHTML = closeIcon;
+  } else {
+    menu.classList.add("animate__animated", "animate__backOutDown");
+    overlay.classList.add("hide");
+
+    menu.addEventListener(
+      "animationend",
+      function () {
+        menu.classList.remove("animate__animated", "animate__backOutDown");
+        menu.classList.add("hidden");
+      },
+      { once: true }
+    );
+
+    hamburgerBtn.innerHTML = openIcon;
   }
 }
 
@@ -125,24 +165,18 @@ blackLabel.addEventListener("click", () => {
 
 const showBamboo = function () {
   const bambooStand = document.getElementById("bambooStand");
-  modal.classList.remove("hide");
-  overlay.classList.remove("hide");
+  openModal();
   bambooStand.scrollIntoView({ behavior: "smooth" });
   showCache(bambooLabel.dataset.target);
-
-  updateFormBorder();
 };
 
 openBambooBtn.addEventListener("click", showBamboo);
 
 const showBlack = function () {
   const blackStand = document.getElementById("blackStand");
-  modal.classList.remove("hide");
-  overlay.classList.remove("hide");
+  openModal();
   blackStand.scrollIntoView({ behavior: "smooth" });
   showCache(blackLabel.dataset.target);
-
-  updateFormBorder();
 };
 
 openBlackBtn.addEventListener("click", showBlack);
@@ -174,23 +208,47 @@ bookmarkBtn.addEventListener("click", function () {
   }
 });
 
-const formBtn = document.querySelectorAll(".form-btn");
+const formBtns = document.querySelectorAll(".form-btn");
 const successBtn = document.querySelector(".success-btn");
 const successModal = document.querySelector(".success-modal");
 
-formBtn.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.preventDefault();
-    successModal.style.display = "block";
-    modal.classList.add("hide");
-    overlay.classList.remove("hide");
-  });
-});
+const showSuccess = function () {
+  successModal.style.display = "block";
+  modal.classList.add("hide");
+  overlay.classList.remove("hide");
+
+  successModal.classList.add("animate__animated", "animate__zoomIn");
+  successModal.addEventListener(
+    "animationend",
+    function () {
+      successModal.classList.remove("animate__animated", "animate__zoomIn");
+    },
+    { once: true }
+  );
+};
 
 const closeSuccess = function () {
-  successModal.style.display = "none";
-  closeModal();
+  successModal.classList.add("animate__animated", "animate__zoomOut");
+
+  successModal.addEventListener(
+    "animationend",
+    function () {
+      successModal.classList.remove("animate__animated", "animate__zoomOut");
+      successModal.style.display = "none";
+      document.body.classList.remove("modal-open");
+    },
+    { once: true }
+  );
+
+  overlay.classList.add("hide");
 };
+
+formBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    e.preventDefault();
+    showSuccess();
+  });
+});
 
 successBtn.addEventListener("click", closeSuccess);
 overlay.addEventListener("click", closeSuccess);
