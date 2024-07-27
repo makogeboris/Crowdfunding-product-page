@@ -225,6 +225,8 @@ const showSuccess = function () {
     },
     { once: true }
   );
+
+  handlePledge();
 };
 
 const closeSuccess = function () {
@@ -253,17 +255,51 @@ formBtns.forEach((btn) => {
 successBtn.addEventListener("click", closeSuccess);
 overlay.addEventListener("click", closeSuccess);
 
-const amount = document.getElementById("amount");
-const backers = document.getElementById("backers");
-const progressBar = document.getElementById("progressBar");
-const pledgeForm = document.getElementById("pledgeForm");
-const pledgeAmount = document.querySelectorAll(".pledge-amount");
+let totalPledge = 89914;
+let totalBackers = 5007;
+
+const handlePledge = function () {
+  const amountElement = document.getElementById("amount");
+  const backersElement = document.getElementById("backers");
+  const progressBar = document.getElementById("progressBar");
+
+  const selectedRadio = document.querySelector('input[name="pledge"]:checked');
+  if (selectedRadio) {
+    const pledgeInput = document.getElementById(selectedRadio.value);
+
+    if (pledgeInput) {
+      const pledgeAmount = parseFloat(pledgeInput.value);
+      if (pledgeAmount > 0) {
+        totalPledge += pledgeAmount;
+        totalBackers++;
+      }
+    }
+  }
+
+  amountElement.textContent = totalPledge.toLocaleString();
+  backersElement.textContent = totalBackers.toLocaleString();
+  progressBar.value = totalPledge;
+};
 
 gsap.to("#days", {
   duration: 2,
   innerHTML: 56,
   ease: "power2.out",
   snap: { innerHTML: 1 },
+});
+
+function formatNumber(value) {
+  return Number(value).toLocaleString();
+}
+gsap.to("#backers", {
+  duration: 2,
+  innerHTML: 5007,
+  ease: "power2.out",
+  snap: { innerHTML: 1 },
+  onUpdate: function () {
+    const formattedValue = formatNumber(this.targets()[0].innerHTML);
+    this.targets()[0].innerHTML = formattedValue;
+  },
 });
 
 function formatCurrency(value) {
@@ -277,21 +313,6 @@ gsap.to("#amount", {
   snap: { innerHTML: 1 },
   onUpdate: function () {
     const formattedValue = formatCurrency(this.targets()[0].innerHTML);
-    this.targets()[0].innerHTML = formattedValue;
-  },
-});
-
-function formatNumber(value) {
-  return Number(value).toLocaleString();
-}
-
-gsap.to("#backers", {
-  duration: 2,
-  innerHTML: 5007,
-  ease: "power2.out",
-  snap: { innerHTML: 1 },
-  onUpdate: function () {
-    const formattedValue = formatNumber(this.targets()[0].innerHTML);
     this.targets()[0].innerHTML = formattedValue;
   },
 });
