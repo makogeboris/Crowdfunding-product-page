@@ -1,10 +1,5 @@
 "use strict";
 
-// const inputPledge = document.querySelectorAll(".saisir");
-// const hidePledge = document.querySelectorAll(".cache");
-// const bambooStand = document.getElementById("bambooStand");
-// const blackStand = document.getElementById("blackStand");
-
 const modal = document.querySelector(".selection-modal");
 const overlay = document.querySelector(".overlay");
 const projectBtn = document.querySelector(".project-btn");
@@ -133,6 +128,17 @@ radios.forEach((radio) => {
 
 updateFormBorder();
 
+const removeFormBorder = function () {
+  document.querySelectorAll(".form").forEach((form) => {
+    form.classList.remove("border-highlight");
+  });
+
+  let checkedRadio = document.querySelector(".form-radio:checked");
+  if (checkedRadio) {
+    checkedRadio.checked = false;
+  }
+};
+
 const showCache = function (targetId) {
   const cacheElements = document.querySelectorAll(".cache-visible");
   cacheElements.forEach((element) => {
@@ -145,6 +151,14 @@ const showCache = function (targetId) {
     targetElement.classList.remove("cache");
     targetElement.classList.add("cache-visible");
   }
+};
+
+const hideCache = function () {
+  const cacheElements = document.querySelectorAll(".cache-visible");
+  cacheElements.forEach((element) => {
+    element.classList.add("cache");
+    element.classList.remove("cache-visible");
+  });
 };
 
 const openBambooBtn = document.querySelector(".open-bamboo-btn");
@@ -167,7 +181,6 @@ const showBamboo = function () {
   const bambooStand = document.getElementById("bambooStand");
   openModal();
   bambooStand.scrollIntoView({ behavior: "smooth" });
-  showCache(bambooLabel.dataset.target);
 };
 
 openBambooBtn.addEventListener("click", showBamboo);
@@ -176,7 +189,6 @@ const showBlack = function () {
   const blackStand = document.getElementById("blackStand");
   openModal();
   blackStand.scrollIntoView({ behavior: "smooth" });
-  showCache(blackLabel.dataset.target);
 };
 
 openBlackBtn.addEventListener("click", showBlack);
@@ -242,6 +254,8 @@ const closeSuccess = function () {
     { once: true }
   );
 
+  hideCache();
+  removeFormBorder();
   overlay.classList.add("hide");
 };
 
