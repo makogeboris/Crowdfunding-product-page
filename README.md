@@ -7,7 +7,6 @@
   - [Screenshot](#screenshot)
   - [Links](#links)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
 - [Author](#author)
 
 ## Overview
@@ -32,8 +31,6 @@ Users should be able to:
 - [Solution](https://github.com/mkboris/Crowdfunding-product-page)
 - [Live Site](https://crowdfunding-product-page-five-phi.vercel.app/)
 
-## My process
-
 ### Built with
 
 - Semantic HTML5 markup
@@ -43,8 +40,6 @@ Users should be able to:
 - Mobile-first workflow
 - Animate.css
 - GSAP
-
-### What I learned
 
 ## Author
 
