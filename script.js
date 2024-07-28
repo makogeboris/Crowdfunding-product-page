@@ -211,7 +211,6 @@ blackLabel.addEventListener("click", () => {
 const showBamboo = function () {
   const bambooStand = document.getElementById("bambooStand");
   openModal();
-  showCache(bambooLabel.dataset.target);
   bambooStand.scrollIntoView({ behavior: "smooth" });
 };
 
@@ -220,7 +219,6 @@ openBambooBtn.addEventListener("click", showBamboo);
 const showBlack = function () {
   const blackStand = document.getElementById("blackStand");
   openModal();
-  showCache(blackLabel.dataset.target);
   blackStand.scrollIntoView({ behavior: "smooth" });
 };
 
