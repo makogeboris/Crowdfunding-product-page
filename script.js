@@ -5,6 +5,25 @@ const overlay = document.querySelector(".overlay");
 const projectBtn = document.querySelector(".project-btn");
 const closeModalBtn = document.querySelector(".close-modal-btn");
 
+// const openModal = function () {
+//   modal.classList.remove("hide");
+//   overlay.classList.remove("hide");
+//   document.body.classList.add("modal-open");
+//   modal.setAttribute("aria-hidden", "false");
+//   closeModalBtn.focus();
+
+//   modal.classList.add("animate__animated", "animate__zoomIn");
+
+//   modal.addEventListener(
+//     "animationend",
+//     function () {
+//       modal.classList.remove("animate__animated", "animate__zoomIn");
+//     },
+//     { once: true }
+//   );
+// };
+
+// projectBtn.addEventListener("click", openModal);
 const openModal = function () {
   modal.classList.remove("hide");
   overlay.classList.remove("hide");
@@ -12,7 +31,9 @@ const openModal = function () {
   modal.setAttribute("aria-hidden", "false");
   closeModalBtn.focus();
 
+  // Add the animation class and set duration
   modal.classList.add("animate__animated", "animate__zoomIn");
+  modal.style.setProperty("--animate-duration", "0.3s"); // Set desired duration here
 
   modal.addEventListener(
     "animationend",
@@ -31,6 +52,7 @@ const closeModal = function () {
   projectBtn.focus();
 
   modal.classList.add("animate__animated", "animate__zoomOut");
+  modal.style.setProperty("--animate-duration", "0.3s");
 
   modal.addEventListener(
     "animationend",
@@ -73,6 +95,7 @@ function navToggle() {
   if (menu.classList.contains("hidden")) {
     menu.classList.remove("hidden");
     menu.classList.add("animate__animated", "animate__backInUp");
+    menu.style.setProperty("--animate-duration", "0.3s");
     overlay.classList.remove("hide");
 
     const isExpanded = this.getAttribute("aria-expanded") === "true";
@@ -188,6 +211,7 @@ blackLabel.addEventListener("click", () => {
 const showBamboo = function () {
   const bambooStand = document.getElementById("bambooStand");
   openModal();
+  showCache(bambooLabel.dataset.target);
   bambooStand.scrollIntoView({ behavior: "smooth" });
 };
 
@@ -196,6 +220,7 @@ openBambooBtn.addEventListener("click", showBamboo);
 const showBlack = function () {
   const blackStand = document.getElementById("blackStand");
   openModal();
+  showCache(blackLabel.dataset.target);
   blackStand.scrollIntoView({ behavior: "smooth" });
 };
 
@@ -239,6 +264,8 @@ const showSuccess = function () {
   successModal.setAttribute("aria-hidden", "false");
 
   successModal.classList.add("animate__animated", "animate__zoomIn");
+  successModal.style.setProperty("--animate-duration", "0.3s");
+
   successModal.addEventListener(
     "animationend",
     function () {
