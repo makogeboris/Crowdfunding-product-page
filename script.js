@@ -9,6 +9,8 @@ const openModal = function () {
   modal.classList.remove("hide");
   overlay.classList.remove("hide");
   document.body.classList.add("modal-open");
+  modal.setAttribute("aria-hidden", "false");
+  closeModalBtn.focus();
 
   modal.classList.add("animate__animated", "animate__zoomIn");
 
@@ -25,6 +27,9 @@ projectBtn.addEventListener("click", openModal);
 
 const closeModal = function () {
   overlay.classList.add("hide");
+  modal.setAttribute("aria-hidden", "true");
+  projectBtn.focus();
+
   modal.classList.add("animate__animated", "animate__zoomOut");
 
   modal.addEventListener(
@@ -69,6 +74,9 @@ function navToggle() {
     menu.classList.remove("hidden");
     menu.classList.add("animate__animated", "animate__backInUp");
     overlay.classList.remove("hide");
+
+    const isExpanded = this.getAttribute("aria-expanded") === "true";
+    this.setAttribute("aria-expanded", !isExpanded);
 
     menu.addEventListener(
       "animationend",
@@ -228,6 +236,7 @@ const showSuccess = function () {
   successModal.style.display = "block";
   modal.classList.add("hide");
   overlay.classList.remove("hide");
+  successModal.setAttribute("aria-hidden", "false");
 
   successModal.classList.add("animate__animated", "animate__zoomIn");
   successModal.addEventListener(
@@ -243,6 +252,7 @@ const showSuccess = function () {
 
 const closeSuccess = function () {
   successModal.classList.add("animate__animated", "animate__zoomOut");
+  successModal.setAttribute("aria-hidden", "true");
 
   successModal.addEventListener(
     "animationend",

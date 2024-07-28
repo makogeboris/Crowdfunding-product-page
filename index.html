@@ -33,7 +33,10 @@
     <header class="header">
       <nav class="nav">
         <div class="mobile-flex">
-          <a class="logo-link" href="#">
+          <a
+            class="logo-link"
+            href="https://crowdfunding-product-page-five-phi.vercel.app/"
+          >
             <img src="images/logo.svg" alt="Crowdfund's logo" class="logo" />
           </a>
 
@@ -53,9 +56,11 @@
           <button
             class="ham-btn animate__animated animate__zoomIn"
             type="button"
-            role="switch"
+            aria-label="Toggle mobile menu"
+            aria-expanded="false"
+            aria-controls="content"
           >
-            Toogle menu
+            Toggle mobile menu
           </button>
         </div>
         <!-- Mobile menu -->
@@ -132,6 +137,7 @@
           class="custom-progress"
           max="100000"
           value="89914"
+          aria-label="Task progress: 89,914 out of 100,000"
         ></progress>
       </section>
 
@@ -217,12 +223,17 @@
     </main>
 
     <!-- Selection modal start -->
-    <section class="selection-modal hide">
+    <section
+      class="selection-modal hide"
+      role="dialog"
+      aria-labelledby="modalTitle"
+      aria-modal="true"
+    >
       <div class="modal">
         <div class="modal-title-wrap">
-          <h3 class="about-heading">Back this project</h3>
+          <h3 id="modalTitle" class="about-heading">Back this project</h3>
 
-          <button class="close-modal-btn">
+          <button class="close-modal-btn" aria-label="Close modal">
             <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
               <path
                 d="M11.314 0l2.828 2.828L9.9 7.071l4.243 4.243-2.828 2.828L7.07 9.9l-4.243 4.243L0 11.314 4.242 7.07 0 2.828 2.828 0l4.243 4.242L11.314 0z"
@@ -282,7 +293,13 @@
                   placeholder="1"
                 />
                 <span class="prefix">$</span>
-                <button type="submit" class="btn form-btn">Continue</button>
+                <button
+                  type="submit"
+                  class="btn form-btn"
+                  aria-label="Continue with your pledge"
+                >
+                  Continue
+                </button>
               </div>
             </div>
           </div>
@@ -339,7 +356,13 @@
                   placeholder="25"
                 />
                 <span class="prefix">$</span>
-                <button type="submit" class="btn form-btn">Continue</button>
+                <button
+                  type="submit"
+                  class="btn form-btn"
+                  aria-label="Continue with your pledge"
+                >
+                  Continue
+                </button>
               </div>
             </div>
           </div>
@@ -398,7 +421,13 @@
                   placeholder="75"
                 />
                 <span class="prefix">$</span>
-                <button type="submit" class="btn form-btn">Continue</button>
+                <button
+                  type="submit"
+                  class="btn form-btn"
+                  aria-label="Continue with your pledge"
+                >
+                  Continue
+                </button>
               </div>
             </div>
           </div>
@@ -447,21 +476,36 @@
     <!-- Selection modal end -->
 
     <!-- Success modal start -->
-    <div class="success-modal">
+    <div
+      class="success-modal"
+      role="dialog"
+      aria-labelledby="successHeading"
+      aria-describedby="successDescription"
+      aria-hidden="true"
+    >
       <div class="success">
-        <img class="icon-check" src="images/icon-check.svg" alt="" />
+        <img
+          class="icon-check"
+          src="images/icon-check.svg"
+          alt="Checkmark icon indicating success"
+        />
 
-        <h3 class="about-heading success-heading">Thanks for your support!</h3>
+        <h3 id="successHeading" class="about-heading success-heading">
+          Thanks for your support!
+        </h3>
 
-        <p class="card-paragraph success-paragraph">
+        <p id="successDescription" class="card-paragraph success-paragraph">
           Your pledge brings us one step closer to sharing Mastercraft Bamboo
           Monitor Riser worldwide. You will get an email once our campaign is
           completed.
         </p>
 
-        <button class="btn success-btn">Got it!</button>
+        <button class="btn success-btn" aria-label="Close success message">
+          Got it!
+        </button>
       </div>
     </div>
+
     <!-- Success modal end -->
     <div class="overlay hide"></div>
   </body>
