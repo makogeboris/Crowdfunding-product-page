@@ -5,25 +5,6 @@ const overlay = document.querySelector(".overlay");
 const projectBtn = document.querySelector(".project-btn");
 const closeModalBtn = document.querySelector(".close-modal-btn");
 
-// const openModal = function () {
-//   modal.classList.remove("hide");
-//   overlay.classList.remove("hide");
-//   document.body.classList.add("modal-open");
-//   modal.setAttribute("aria-hidden", "false");
-//   closeModalBtn.focus();
-
-//   modal.classList.add("animate__animated", "animate__zoomIn");
-
-//   modal.addEventListener(
-//     "animationend",
-//     function () {
-//       modal.classList.remove("animate__animated", "animate__zoomIn");
-//     },
-//     { once: true }
-//   );
-// };
-
-// projectBtn.addEventListener("click", openModal);
 const openModal = function () {
   modal.classList.remove("hide");
   overlay.classList.remove("hide");
@@ -31,9 +12,8 @@ const openModal = function () {
   modal.setAttribute("aria-hidden", "false");
   closeModalBtn.focus();
 
-  // Add the animation class and set duration
   modal.classList.add("animate__animated", "animate__zoomIn");
-  modal.style.setProperty("--animate-duration", "0.3s"); // Set desired duration here
+  modal.style.setProperty("--animate-duration", "0.3s");
 
   modal.addEventListener(
     "animationend",
