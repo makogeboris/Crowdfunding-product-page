@@ -28,7 +28,6 @@ Users should be able to:
 
 ### Links
 
-- [Solution](https://github.com/mkboris/Crowdfunding-product-page)
 - [Live Site](https://crowdfunding-product-page-five-phi.vercel.app/)
 
 ### Built with
@@ -43,4 +42,5 @@ Users should be able to:
 
 ## Author
 
-- Frontend Mentor - [@mkboris](https://www.frontendmentor.io/profile/mkboris)
+- Frontend Mentor - [makogeboris](https://www.frontendmentor.io/profile/makogeboris)
+- Twitter - [makogeboris](https://x.com/makogeboris)
